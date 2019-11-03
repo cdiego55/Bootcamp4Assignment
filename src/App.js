@@ -3,6 +3,7 @@ import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
+import RemoveBuilding from './components/RemoveBuilding';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +25,13 @@ class App extends React.Component {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
     this.setState({
       selectedBuilding: id
+    })
+  }
+
+  removeBuilding(id)
+  {
+    this.setState(() => {
+      delete this.props.data[id - 1];
     })
   }
 
@@ -59,6 +67,12 @@ class App extends React.Component {
               <ViewBuilding 
                 data={this.props.data}
                 id={this.state.selectedBuilding}
+              />
+              <RemoveBuilding
+                data={this.RemoveBuilding}
+                removeBuilding = {this.removeBuilding.bind(this)}
+                building = {this.state.selectedBuilding}
+                selectedUpdate={this.selectedUpdate.bind(this)}
               />
             </div>
           </div>

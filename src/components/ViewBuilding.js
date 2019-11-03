@@ -7,8 +7,13 @@ class ViewBuilding extends React.Component {
 
 		if (id)
 		{
-			building = data.find(x => x.id === id);
-			
+			console.log(id);
+			building = data.find(function(x) {
+				if (x && x.id === id)
+				{
+					return x;
+				}
+			});
 			console.log(building);
 		}	
 
