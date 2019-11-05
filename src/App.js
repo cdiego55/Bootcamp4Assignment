@@ -46,7 +46,9 @@ class App extends React.Component {
     return (
       <div className="bg">
         <div className="row">
+          <div className="title">
           <h1>UF Directory App</h1>
+          </div>
         </div>
 
         <Search filterText={this.state.filterText} filterUpdate = {this.filterUpdate.bind(this)}/>
@@ -80,7 +82,8 @@ class App extends React.Component {
                 building = {this.state.selectedBuilding}
                 selectedUpdate={this.selectedUpdate.bind(this)}
               />
-              <div>
+              <div className="addForm">
+                <h1>Add New Building</h1>
                 <AddBuilding 
                   addBuilding={this.addBuilding.bind(this)} 
                   data={this.props.data}
