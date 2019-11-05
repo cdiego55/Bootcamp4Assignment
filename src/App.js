@@ -4,6 +4,7 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 import RemoveBuilding from './components/RemoveBuilding';
+import AddBuilding from './components/AddBuilding';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,12 @@ class App extends React.Component {
     })
   }
 
+  addBuilding(newBuild){
+    this.setState(() => {
+      this.props.data.push(newBuild);
+    })
+  }
+
   removeBuilding(id)
   {
     this.setState(() => {
@@ -41,6 +48,7 @@ class App extends React.Component {
       <div className="bg">
         <div className="row">
           <h1>UF Directory App</h1>
+          <AddBuilding addBuilding={this.addBuilding.bind(this)} data={this.props.data}/>
         </div>
 
         <Search filterText={this.state.filterText} filterUpdate = {this.filterUpdate.bind(this)}/>
