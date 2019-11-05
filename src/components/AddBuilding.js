@@ -20,7 +20,7 @@ class AddBuilding extends React.Component {
                     {
                         newBuild.code = document.getElementById('add').code.value;
                         newBuild.address = document.getElementById('add').address.value;
-                        newBuild.id = this.props.data.length + 1;                    
+                        newBuild.id = this.props.data.length + 1;             
                         console.log(newBuild);
                         this.addBuilding(newBuild);
                     }

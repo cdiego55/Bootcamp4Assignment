@@ -30,9 +30,8 @@ class App extends React.Component {
   }
 
   addBuilding(newBuild){
-    this.setState(() => {
-      this.props.data.push(newBuild);
-    })
+    this.props.data.push(newBuild);
+    this.setState({ state: this.state });
   }
 
   removeBuilding(id)
@@ -48,7 +47,6 @@ class App extends React.Component {
       <div className="bg">
         <div className="row">
           <h1>UF Directory App</h1>
-          <AddBuilding addBuilding={this.addBuilding.bind(this)} data={this.props.data}/>
         </div>
 
         <Search filterText={this.state.filterText} filterUpdate = {this.filterUpdate.bind(this)}/>
@@ -82,6 +80,12 @@ class App extends React.Component {
                 building = {this.state.selectedBuilding}
                 selectedUpdate={this.selectedUpdate.bind(this)}
               />
+              <div>
+                <AddBuilding 
+                  addBuilding={this.addBuilding.bind(this)} 
+                  data={this.props.data}
+                />
+              </div>            
             </div>
           </div>
           <Credit />
