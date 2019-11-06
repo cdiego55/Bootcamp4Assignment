@@ -77,7 +77,6 @@ class App extends React.Component {
                 id={this.state.selectedBuilding}
               />
               <RemoveBuilding
-                data={this.RemoveBuilding}
                 removeBuilding = {this.removeBuilding.bind(this)}
                 building = {this.state.selectedBuilding}
                 selectedUpdate={this.selectedUpdate.bind(this)}
